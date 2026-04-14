@@ -12,18 +12,18 @@ public class FuncionarioDTO {
     private String nome;
     private String departamento;
     private String email;
-    private Date data_contratacao;
+    private Date dataContratacao;
 
     public FuncionarioDTO() {
     }
 
-    public FuncionarioDTO(int id, String cargo, String nome, String departamento, String email, Date data_contratacao) {
+    public FuncionarioDTO(int id, String cargo, String nome, String departamento, String email, Date dataContratacao) {
         this.id = id;
         this.cargo = cargo;
         this.nome = nome;
         this.departamento = departamento;
         this.email = email;
-        this.data_contratacao = data_contratacao;
+        this.dataContratacao = dataContratacao;
     }
 
     public int getId() {
@@ -66,12 +66,12 @@ public class FuncionarioDTO {
         this.email = email;
     }
 
-    public Date getData_contratacao() {
-        return data_contratacao;
+    public Date getDataContratacao() {
+        return dataContratacao;
     }
 
     public void setData_contratacao(Date data_contratacao) {
-        this.data_contratacao = data_contratacao;
+        this.dataContratacao = data_contratacao;
     }
     
 }
