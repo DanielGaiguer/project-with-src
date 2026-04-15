@@ -4,13 +4,24 @@
  */
 package com.startup.gerenciamento.controller;
 
+import com.startup.gerenciamento.model.FuncionarioDTO;
+import com.startup.gerenciamento.service.FuncionarioService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class FuncionarioController {
+    
+    @Autowired 
+    private FuncionarioService service;
+    
     @GetMapping("/funcionarios")
-    public String getFuncionarios() {
+    public String getFuncionarios(Model model) {
+        List<FuncionarioDTO> lista = service.lerTodos();
+        model.addAttribute("lista", lista);
         return "funcionarios";
     }
 }
