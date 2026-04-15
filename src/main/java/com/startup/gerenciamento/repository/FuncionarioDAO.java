@@ -62,13 +62,51 @@ public class FuncionarioDAO {
                 funcionario.setEmail(rs.getString("email"));
                 funcionario.setDataContratacao(rs.getDate("data_contratacao"));
             }
-            
-            
-            
         }catch(SQLException e){
             e.printStackTrace();
         }
         
         return funcionario;
+    }
+    
+    public void updatePerfil(FuncionarioDTO funcionario){
+        try{
+            Connection conn = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            
+            stmt = conn.prepareStatement("update funcionarios set nome = ?, cargo = ?, departamento = ?, email = ?, data_contratacao = ? WHERE id = ?");
+            stmt.setString(1, funcionario.getNome());
+            stmt.setString(1, funcionario.getCargo());
+            stmt.setString(1, funcionario.getDepartamento());
+            stmt.setString(1, funcionario.getEmail());
+            stmt.setDate(1, funcionario.getDataContratacao());
+            stmt.setInt(1, funcionario.getId());
+            
+            rs = stmt.executeQuery();
+            
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void createPerfil(FuncionarioDTO funcionario){
+        try{
+            Connection conn = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            
+            stmt = conn.prepareStatement("INSERT INTO funcionarios (nome, cargo, departamento, email, data_contratacao) values (?, ?, ?, ?, ?)");
+            stmt.setString(1, funcionario.getNome());
+            stmt.setString(1, funcionario.getCargo());
+            stmt.setString(1, funcionario.getDepartamento());
+            stmt.setString(1, funcionario.getEmail());
+            stmt.setDate(1, funcionario.getDataContratacao());
+            
+            rs = stmt.executeQuery();
+            
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 }
