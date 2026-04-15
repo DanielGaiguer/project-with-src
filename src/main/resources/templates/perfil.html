@@ -6,33 +6,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <header>
-
-        </header>
         <main>
-        <h1>Lista de funcionarios da empresa</h1>
-            <table>
-                <tr>
-                    <th>id</th>
-                    <th>nome</th>
-                    <th>Cargo</th>
-                    <th>Departamento</th>
-                    <th>Email</th>
-                    <th>Contratacao</th>
-                    <th>Ações</th>
-                </tr>
-                <tr th:each="f: ${perfil}">
-                    <td th:text="${f.id}"></td>
-                    <td th:text="${f.nome}"></td>
-                    <td th:text="${f.cargo}"></td>
-                    <td th:text="${f.departamento}"></td>
-                    <td th:text="${f.email}"></td>
-                    <td th:text="${f.dataContratacao}"></td>
-                    <td>
-                        <a th:href="@{/perfil(id=${f.id})}">Editar</a>                       
-                    </td>
-                </tr>
-            </table>
+        <h1>Dados do funcionario da empresa</h1>
+        <form th:action="@{/atualizar}" th:object="${perfil}" method="post">
+            <label>Nome do Funcionário:</label>
+            <input type="text" th:field="*{nome}">
+            <br>
+            <label>Cargo do funcionario:</label>
+            <input type="text" name="cargo" th:field="*{cargo}">
+            <br>
+            <label>Departamento do Funcionario:</label>
+            <input type="text" name="departamento" th:field="*{departamento}">
+            <br>
+            <label>Email do Funcionario</label>
+            <input type="text" name="email" th:field="*{email}">
+            <br>
+            <label>Data de Contratacao:</label>
+            <input type="date" name="data_contratacao" th:field="*{dataContratacao}">
+        </form>
         </main>
     </body>
 </html>

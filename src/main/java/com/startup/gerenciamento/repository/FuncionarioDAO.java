@@ -50,7 +50,7 @@ public class FuncionarioDAO {
             ResultSet rs = null;
             
             stmt = conn.prepareStatement("SELECT * FROM funcionarios WHERE id = ?");
-            stmt.setInt(id, 1);
+            stmt.setInt(1, id);
             
             rs = stmt.executeQuery();
             
