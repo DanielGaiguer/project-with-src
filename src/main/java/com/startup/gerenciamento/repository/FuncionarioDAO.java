@@ -50,16 +50,19 @@ public class FuncionarioDAO {
             ResultSet rs = null;
             
             stmt = conn.prepareStatement("SELECT * FROM funcionarios WHERE id = ?");
-            stmt.setInt(1, id);
+            stmt.setInt(id, 1);
             
             rs = stmt.executeQuery();
-
-            funcionario.setId(rs.getInt("id"));
-            funcionario.setNome(rs.getString("nome"));
-            funcionario.setCargo(rs.getString("cargo"));
-            funcionario.setDepartamento(rs.getString("departamento"));
-            funcionario.setEmail(rs.getString("email"));
-            funcionario.setDataContratacao(rs.getDate("data_contratacao"));
+            
+            if (rs.next()){
+                funcionario.setId(rs.getInt("id"));
+                funcionario.setNome(rs.getString("nome"));
+                funcionario.setCargo(rs.getString("cargo"));
+                funcionario.setDepartamento(rs.getString("departamento"));
+                funcionario.setEmail(rs.getString("email"));
+                funcionario.setDataContratacao(rs.getDate("data_contratacao"));
+            }
+            
             
             
         }catch(SQLException e){

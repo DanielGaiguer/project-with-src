@@ -16,4 +16,8 @@ public class FuncionarioService {
     public List<FuncionarioDTO> lerTodos(){
         return repository.lerTodos();
     }
+    
+    public FuncionarioDTO getPerfil(int id) {
+        return repository.getPerfil(id);
+    }
 }
