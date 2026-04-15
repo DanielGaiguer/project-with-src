@@ -70,7 +70,7 @@ public class FuncionarioDTO {
         return dataContratacao;
     }
 
-    public void setData_contratacao(Date data_contratacao) {
+    public void setDataContratacao(Date data_contratacao) {
         this.dataContratacao = data_contratacao;
     }
     
