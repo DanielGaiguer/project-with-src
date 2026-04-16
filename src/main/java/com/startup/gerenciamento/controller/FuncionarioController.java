@@ -36,11 +36,7 @@ public class FuncionarioController {
             return "perfil";
         }else{
             FuncionarioDTO funcionario = new FuncionarioDTO();
-            funcionario.setNome("");
-            funcionario.setCargo("");
-            funcionario.setDepartamento("");
-            funcionario.setEmail("");
-            funcionario.setDataContratacao(null);
+            funcionario.setId(-1);
             model.addAttribute("perfil", funcionario);
             return "perfil";
         }

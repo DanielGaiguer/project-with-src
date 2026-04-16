@@ -31,6 +31,7 @@ public class FuncionarioService {
         if (funcionario.getId() != -1){
             repository.updatePerfil(funcionario);
             System.out.println("Funcionario atualizado com sucesso");
+            System.out.println(funcionario.getId());
             return;
         }else{
             repository.createPerfil(funcionario);
