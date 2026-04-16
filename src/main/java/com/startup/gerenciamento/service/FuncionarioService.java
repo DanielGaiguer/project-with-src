@@ -20,9 +20,15 @@ public class FuncionarioService {
     public FuncionarioDTO getPerfil(int id) {
         return repository.getPerfil(id);
     }
-    
+
+    public void setPerfil(){
+        FuncionarioDTO funcionario = new FuncionarioDTO();
+        funcionario.setId(-1);
+        setPerfil(funcionario);
+    }
+
     public void setPerfil(FuncionarioDTO funcionario){
-        if (funcionario.getId() != 0){
+        if (funcionario.getId() != -1){
             repository.updatePerfil(funcionario);
             System.out.println("Funcionario atualizado com sucesso");
             return;

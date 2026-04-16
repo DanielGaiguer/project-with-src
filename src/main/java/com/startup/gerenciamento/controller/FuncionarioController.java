@@ -29,15 +29,27 @@ public class FuncionarioController {
     }
     
     @GetMapping("/perfil")
-    public String getPerfil(@RequestParam int id, Model model){
-        FuncionarioDTO perfil = service.getPerfil(id);
-        model.addAttribute("perfil", perfil);
-        return "perfil";
+    public String getPerfil(@RequestParam(required = false) Integer id, Model model){
+        if (id != null){
+             FuncionarioDTO perfil = service.getPerfil(id);
+            model.addAttribute("perfil", perfil);
+            return "perfil";
+        }else{
+            FuncionarioDTO funcionario = new FuncionarioDTO();
+            funcionario.setNome("");
+            funcionario.setCargo("");
+            funcionario.setDepartamento("");
+            funcionario.setEmail("");
+            funcionario.setDataContratacao(null);
+            model.addAttribute("perfil", funcionario);
+            return "perfil";
+        }
     }
     
-    @PostMapping("/atualizar")
+    @PostMapping("/salvar")
     public String atualizarFuncionario(@ModelAttribute FuncionarioDTO funcionario){
         service.setPerfil(funcionario);
         return "redirect:/funcionarios";
     }
+    
 }

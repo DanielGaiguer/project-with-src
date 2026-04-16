@@ -8,7 +8,7 @@
     <body>
         <main>
         <h1>Dados do funcionario da empresa</h1>
-        <form th:action="@{/atualizar}" th:object="${perfil}" method="post">
+        <form th:action="@{/salvar}" th:object="${perfil}" method="post">
             <input type="hidden" th:field="*{id}">
             <label>Nome do Funcionário:</label>
             <input type="text" th:field="*{nome}">
@@ -25,7 +25,7 @@
             <label>Data de Contratacao:</label>
             <input type="date" name="data_contratacao" th:field="*{dataContratacao}">
             <br/><br/>
-            <button type="submit">Editar funcionario</button>
+            <button type="submit">Salvar funcionario</button>
         </form>
         </main>
     </body>
