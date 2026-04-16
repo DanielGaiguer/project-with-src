@@ -5,13 +5,21 @@
 package com.startup.gerenciamento.model;
 
 import java.sql.Date;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 
 public class FuncionarioDTO {
     private int id;
+    @NotBlank(message = "O cargo não pode estar em branco")
     private String cargo;
+    @NotBlank(message = "O nome não pode estar em branco")
     private String nome;
+    @NotBlank(message = "O departamento não pode estar em branco")
     private String departamento;
+    @NotBlank(message = "O email não pode estar em branco")
     private String email;
+    @NotNull(message = "A data não pode estar em branco")
     private Date dataContratacao;
 
     public FuncionarioDTO() {

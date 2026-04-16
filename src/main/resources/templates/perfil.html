@@ -12,18 +12,28 @@
             <input type="hidden" th:field="*{id}">
             <label>Nome do Funcionário:</label>
             <input type="text" th:field="*{nome}">
+            </br>
+            <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="error"></span>
             <br/><br/>
             <label>Cargo do funcionario:</label>
             <input type="text" name="cargo" th:field="*{cargo}">
+            </br>
+            <span th:if="${#fields.hasErrors('cargo')}" th:errors="*{cargo}" class="error"></span>
             <br/><br/>
             <label>Departamento do Funcionario:</label>
             <input type="text" name="departamento" th:field="*{departamento}">
+            </br>
+            <span th:if="${#fields.hasErrors('departamento')}" th:errors="*{departamento}" class="error"></span>
             <br/><br/>
             <label>Email do Funcionario</label>
             <input type="email" name="email" th:field="*{email}">
+            </br>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>
             <br/><br/>
-            <label>Data de Contratacao:</label>
+            <label>Data de Contratação:</label>
             <input type="date" name="data_contratacao" th:field="*{dataContratacao}">
+            </br>
+            <span th:if="${#fields.hasErrors('dataContratacao')}" th:errors="*{dataContratacao}" class="error"></span>
             <br/><br/>
             <button type="submit">Salvar funcionario</button>
         </form>
