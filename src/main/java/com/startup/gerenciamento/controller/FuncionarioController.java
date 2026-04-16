@@ -12,7 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -35,7 +35,7 @@ public class FuncionarioController {
         return "perfil";
     }
     
-    @PutMapping("/atualizar")
+    @PostMapping("/atualizar")
     public String atualizarFuncionario(@ModelAttribute FuncionarioDTO funcionario){
         service.setPerfil(funcionario);
         return "redirect:/funcionarios";

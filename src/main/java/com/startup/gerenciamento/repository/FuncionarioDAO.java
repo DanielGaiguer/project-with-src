@@ -73,17 +73,16 @@ public class FuncionarioDAO {
         try{
             Connection conn = Conexao.conectar();
             PreparedStatement stmt = null;
-            ResultSet rs = null;
             
             stmt = conn.prepareStatement("update funcionarios set nome = ?, cargo = ?, departamento = ?, email = ?, data_contratacao = ? WHERE id = ?");
             stmt.setString(1, funcionario.getNome());
-            stmt.setString(1, funcionario.getCargo());
-            stmt.setString(1, funcionario.getDepartamento());
-            stmt.setString(1, funcionario.getEmail());
-            stmt.setDate(1, funcionario.getDataContratacao());
-            stmt.setInt(1, funcionario.getId());
+            stmt.setString(2, funcionario.getCargo());
+            stmt.setString(3, funcionario.getDepartamento());
+            stmt.setString(4, funcionario.getEmail());
+            stmt.setDate(5, funcionario.getDataContratacao());
+            stmt.setInt(6, funcionario.getId());
             
-            rs = stmt.executeQuery();
+            stmt.executeUpdate();
             
         }catch(SQLException e){
             e.printStackTrace();
@@ -94,16 +93,15 @@ public class FuncionarioDAO {
         try{
             Connection conn = Conexao.conectar();
             PreparedStatement stmt = null;
-            ResultSet rs = null;
             
             stmt = conn.prepareStatement("INSERT INTO funcionarios (nome, cargo, departamento, email, data_contratacao) values (?, ?, ?, ?, ?)");
             stmt.setString(1, funcionario.getNome());
-            stmt.setString(1, funcionario.getCargo());
-            stmt.setString(1, funcionario.getDepartamento());
-            stmt.setString(1, funcionario.getEmail());
-            stmt.setDate(1, funcionario.getDataContratacao());
+            stmt.setString(2, funcionario.getCargo());
+            stmt.setString(3, funcionario.getDepartamento());
+            stmt.setString(4, funcionario.getEmail());
+            stmt.setDate(5, funcionario.getDataContratacao());
             
-            rs = stmt.executeQuery();
+            stmt.executeUpdate();
             
         }catch(SQLException e){
             e.printStackTrace();

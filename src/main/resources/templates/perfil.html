@@ -9,22 +9,23 @@
         <main>
         <h1>Dados do funcionario da empresa</h1>
         <form th:action="@{/atualizar}" th:object="${perfil}" method="post">
+            <input type="hidden" th:field="*{id}">
             <label>Nome do Funcionário:</label>
             <input type="text" th:field="*{nome}">
-            <br>
+            <br/><br/>
             <label>Cargo do funcionario:</label>
             <input type="text" name="cargo" th:field="*{cargo}">
-            <br>
+            <br/><br/>
             <label>Departamento do Funcionario:</label>
             <input type="text" name="departamento" th:field="*{departamento}">
-            <br>
+            <br/><br/>
             <label>Email do Funcionario</label>
-            <input type="text" name="email" th:field="*{email}">
-            <br>
+            <input type="email" name="email" th:field="*{email}">
+            <br/><br/>
             <label>Data de Contratacao:</label>
             <input type="date" name="data_contratacao" th:field="*{dataContratacao}">
-            <br>
-            <button>Editar funcionario</button>
+            <br/><br/>
+            <button type="submit">Editar funcionario</button>
         </form>
         </main>
     </body>
